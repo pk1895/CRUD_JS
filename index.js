@@ -68,6 +68,8 @@ const onSubmitForm = () => {
 
     arrOfObject.push(formObject);
     createTableRow(name, email, age, gender);
+    
+    document.getElementById("crudForm").reset();
 };
 
 const onEditElement = (event) => {
@@ -91,7 +93,7 @@ const onSubmitPopupForm = (event) => {
     const elements = document.getElementById("popupForm").elements;
     const row = document.getElementById("crudTable").rows[selectedRow + 1].cells;
 
-    arrOfObject = arrOfObject.map((item, index) => {
+    arrOfObject = arrOfObject.map((item) => {
         if (item.name === row[0].innerText) {
             return {
                 name: elements[0].value,
