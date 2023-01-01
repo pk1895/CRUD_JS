@@ -1,4 +1,4 @@
-const arrOfObject = [];
+let arrOfObject = [];
 let selectedRow;
 
 const readData = () => {
@@ -68,7 +68,6 @@ const onSubmitForm = () => {
 
     arrOfObject.push(formObject);
     createTableRow(name, email, age, gender);
-
 };
 
 const onEditElement = (event) => {
@@ -90,13 +89,25 @@ const onEditElement = (event) => {
 const onSubmitPopupForm = (event) => {
     event.preventDefault();
     const elements = document.getElementById("popupForm").elements;
-    const row = document.getElementById("crudTable").rows[selectedRow+1].cells;
+    const row = document.getElementById("crudTable").rows[selectedRow + 1].cells;
+
+    arrOfObject = arrOfObject.map((item, index) => {
+        if (item.name === row[0].innerText) {
+            return {
+                name: elements[0].value,
+                email: elements[1].value,
+                age: elements[2].value,
+                gender: elements[3].value
+            }
+        }
+        return item;
+    });
     row[0].innerText = elements[0].value;
     row[1].innerText = elements[1].value;
     row[2].innerText = elements[2].value;
     row[3].innerText = elements[3].value;
 
-    onCloseForm()
+    onCloseForm();
 }
 
 const onDeleteElement = (event) => {
