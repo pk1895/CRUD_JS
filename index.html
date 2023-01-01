@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <div id="app" class="app">
+      <div class="formContainer">
+        <form id="crudForm" onsubmit="onSubmitForm(event.preventDefault())">
+          <input placeholder="Enter Name..." value="Test" /><br />
+          <input
+            placeholder="Enter email..."
+            value="test@gmail.com"
+            type="email"
+          /><br />
+          <input placeholder="Enter age..." value="22" type="number" /><br />
+
+          <select id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option></select
+          ><br /><br />
+
+          <button type="submit">Submit</button>
+          <button type="reset" value="Reset">Reset</button>
+        </form>
+      </div>
+      <br /><br />
+
+      <div class="tableContainer">
+        <h2>User Table</h2>
+        <table id="crudTable">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Gender</th>
+          </tr>
+        </table>
+      </div>
+
+      <div class="form-popup" id="myForm">
+        <form class="form-container" onsubmit="onSubmitPopupForm(event)" id="popupForm">
+          <h1>Edit User Info</h1>
+      
+          <input type="text" placeholder="Enter Name" name="name">
+          <input type="text" placeholder="Enter Email" name="email">
+          <input type="text" placeholder="Enter Age" name="age">
+          <input type="text" placeholder="Enter Gender" name="gender">
+      
+          <button type="submit" class="btn">Update</button>
+          <button type="button" class="btn cancel" onclick="onCloseForm()">Close</button>
+        </form>
+      </div>      
+    </div>
+
+    <script src="C:/Users/prkh0322/Desktop/Test/index.js"></script>
+  </body>
+</html>
